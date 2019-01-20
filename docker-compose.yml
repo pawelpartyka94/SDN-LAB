@@ -1,0 +1,38 @@
+version: '3'
+services:
+  mininet:
+    build:
+      context: .
+    image: iwaseyusuke/mininet
+    tty: true
+    network_mode: "bridge"
+    privileged: true
+    environment:
+     - DISPLAY
+    volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+     - /lib/modules:/lib/modules
+  ns3:
+    build:
+      context: .
+    image: ryankurte/docker-ns3
+    tty: true
+    network_mode: "bridge"
+    privileged: true
+    environment:
+     - DISPLAY
+    volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+     - /lib/modules:/lib/modules
+  opennet:
+    build:
+      context: .
+    image: dlinknctu/OpenNet
+    tty: true
+    network_mode: "bridge"
+    privileged: true
+    environment:
+     - DISPLAY
+    volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+     - /lib/modules:/lib/modules
